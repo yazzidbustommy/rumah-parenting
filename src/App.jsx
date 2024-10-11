@@ -1,24 +1,34 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Layout from "./components/Layout";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Articles from "./pages/Articles";
+import Products from "./pages/Products";
+import Forum from "./pages/Forum";
+import { useState } from "react";
 
-const App = () => {
+function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar onSearch={handleSearch} />
+        <main className="flex-grow container mx-auto mt-6">
+          <Routes>
+            <Route path="/" element={<Home searchTerm={searchTerm} />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/forum" element={<Forum />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
