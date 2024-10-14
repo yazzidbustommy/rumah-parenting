@@ -58,6 +58,11 @@ const Navbar = ({ onSearch }) => {
               Forum
             </Link>
           </li>
+          <li>
+            <Link to="/about" className="text-white">
+              About Us
+            </Link>
+          </li>
         </ul>
 
         {/* Search bar untuk desktop */}
@@ -100,6 +105,11 @@ const Navbar = ({ onSearch }) => {
           <li>
             <Link to="/forum" className="text-white" onClick={toggleMenu}>
               Forum
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="text-white" onClick={toggleMenu}>
+              About Us
             </Link>
           </li>
         </ul>

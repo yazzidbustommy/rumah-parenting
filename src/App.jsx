@@ -6,6 +6,8 @@ import Articles from "./pages/Articles";
 import Products from "./pages/Products";
 import Forum from "./pages/Forum";
 import { useState } from "react";
+import AboutUs from "./pages/AboutUs";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,6 +25,8 @@ function App() {
             <Route path="/articles" element={<Articles />} />
             <Route path="/products" element={<Products />} />
             <Route path="/forum" element={<Forum />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/admin" element={<AdminPanel />} />
           </Routes>
         </main>
         <Footer />
